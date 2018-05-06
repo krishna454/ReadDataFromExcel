@@ -10,6 +10,7 @@
  <%@ page import ="database.DB_Connection" %>
   <%@ page import ="java.sql.Connection" %>
   <%@ page import ="java.io.File" %>
+  <%@ page import ="database.CreateTable" %>
   <%@ page import ="java.sql.PreparedStatement" %>  
  //Apache POI Libraries  
  <%@ page import ="org.apache.poi.hssf.usermodel.HSSFCell" %>  
@@ -67,14 +68,23 @@
  //Print the data read  
  //printCellDataToConsole(dataHolder);  
  con=connection.getConn();  
- out.print(con);
+ 
+ CreateTable createTable=new CreateTable();
+ createTable.createTableDynamically();
+ 
  String query="insert into student values(?,?,?)";  
+ 
  ps=con.prepareStatement(query);  
+ 
+ 
  int count=0;  
  ArrayList cellStoreArrayList=null;  
  //For inserting into database  
  for (int i=1;i < dataHolder.size(); i++) {  
+	 
+	 
    cellStoreArrayList=(ArrayList)dataHolder.get(i);  
+   
      ps.setString(1,((HSSFCell)cellStoreArrayList.get(0)).toString());  
      ps.setString(2,((HSSFCell)cellStoreArrayList.get(1)).toString());  
      ps.setString(3,((HSSFCell)cellStoreArrayList.get(2)).toString());  
@@ -100,6 +110,7 @@
      <td><%=((HSSFCell)cellStoreArrayList.get(2)).toString() %></td>  
    </tr>  
      <%}  
+   //  createTable.dropTableDynamically();
     }  
    else  
    {%>  
