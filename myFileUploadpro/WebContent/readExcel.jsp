@@ -12,7 +12,7 @@
   <%@ page import ="java.io.File" %>
   <%@ page import ="database.CreateTable" %>
   <%@ page import ="java.sql.PreparedStatement" %>  
- //Apache POI Libraries  
+ <!-- Apache POI Libraries   -->
  <%@ page import ="org.apache.poi.hssf.usermodel.HSSFCell" %>  
  <%@ page import ="org.apache.poi.hssf.usermodel.HSSFRow" %>  
  <%@ page import ="org.apache.poi.hssf.usermodel.HSSFSheet" %>  
@@ -93,29 +93,28 @@
      }  
 
  //For checking data is inserted or not?  
-   if(count>0)  
-     { %>  
-         Following deatils from Excel file have been inserted in student table of database  
+//   if(count>0)  
+  //   { %>  
+    <!--     Following deatils from Excel file have been inserted in student table of database  
            <table>  
              <tr>  
                <th>Student's Name</th>  
                <th>Class</th>  
                <th>Age</th>  
-             </tr>  
-     <% for (int i=1;i < dataHolder.size(); i++) {  
-   cellStoreArrayList=(ArrayList)dataHolder.get(i);%>  
-   <tr>  
+             </tr>   --> 
+     <% //for (int i=1;i < dataHolder.size(); i++) {  
+  // cellStoreArrayList=(ArrayList)dataHolder.get(i);%>  
+<!--    <tr>  
      <td><%=((HSSFCell)cellStoreArrayList.get(0)).toString() %></td>  
      <td><%=((HSSFCell)cellStoreArrayList.get(1)).toString() %></td>  
      <td><%=((HSSFCell)cellStoreArrayList.get(2)).toString() %></td>  
-   </tr>  
-     <%}  
-   //  createTable.dropTableDynamically();
-    }  
-   else  
-   {%>  
-   <center> Details have not been inserted!!!!!!!!!</center>  
-   <%  }  %>  
-     </table>  
+   </tr>   -->
+     <% //}  
+  //  }  
+  // else  
+ //  {%>  
+ <!--  z <center> Details have not been inserted!!!!!!!!!</center>  
+   <% // }  %>  
+     </table>   -->
  </body>  
  </html>  
